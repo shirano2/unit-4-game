@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>unit-4-game</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
+</head>
+
+<style>
+img {
+    width:100px;
+    height:40px;
+}
+</style>
+<script>
+$(document).ready(function(){
+    var jewelArray=[]; /* each value of jewels (random) */
+    var total=0; /* total user score */
+    var targetScore=0; /* object score */
+    var win=0; /* number of win */
+    var lose=0; /* number of lose */
+
+    function start() { /* when start new game */
+        total=0;
+        jewelArray=[];
+        while (true) {
+            var jewelNumber=Math.floor(Math.random()*12+1); /* 1~12 */
+            if(jewelArray.indexOf(jewelNumber)<0) { /* if the number is not same as previous one */
+                jewelArray.push(jewelNumber);  /* then put the number to array */
+            }
+            if(jewelArray.length==4) break; /* if length of array is 4, then while loop is closed */
+        }
+        targetScore=Math.floor(Math.random()*102+19); /* 19~120 */
+        write();
+    }
+
+    function write() { /* if image is clciked or new game is started, rewrite html */
+        $("#target").text(targetScore);
+        $("#win").text(win);
+        $("#lose").text(lose);
+        $("#total").text(total);
+    }
+
+    /*this is start of code */
+    start();
+
+    $(".four-images").on("click",function(event){
+        if(event.target.id=="ruby") {
+            total=total+jewelArray[0];
+        } else if(event.target.id=="diamond") {
+            total=total+jewelArray[1];
+        } else if(event.target.id=="emerald") {
+            total=total+jewelArray[2];
+        } else if(event.target.id=="sapphire") {
+            total=total+jewelArray[3];
+        }
+        write();
+        if(total>=targetScore) { /* if win, */
+            if(total==targetScore) {
+                win++; 
+                $("#message").text("You win!!");
+            }
+            else { /* if lose, */
+                lose++; 
+                $("#message").text("You lose!!");
+            }
+            start();
+        }
+    });
+});
+</script>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>CrystalsCollector!</h1>
+        </header>
+        <div class="contents">
+            <div class="instruction">
+                <p>
+                    You will be given a random number at the start of the game. <br><br>
+                    There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. <br><br>
+                    You win the game by matching your total score to random number, you lose the game if your total score goes above the random number <br><br>
+                    The value of each crystal is hidden from you until you click on it.<br><br>
+                    Each time when the game starts, the game will change the values of each crystal.
+                </p>
+            </div>
+            <div class="four-images">
+                <img id="ruby" src="assets/images/rubi.jpg">
+                <img id="diamond" src="assets/images/diamond.jpg">
+                <img id="emerald" src="assets/images/emerald.png">
+                <img id="sapphire" src="assets/images/sapphire.jpg">
+            </div>
+            <div class="target-score">
+                <p>You should make this number!!</p>
+                <h2 id="target"></h2>
+            </div>
+            <div class="result">
+                <div id="message"></div>
+                <div>Wins : <span id="win">0</span></div>
+                <div>Losses : <span id="lose">0</span></div>
+            </div>
+            <div class="user-score">
+                <h2>Your total score is : <span id="total">0</span></h2>
+            </div>
+            
+            
+        </div>
+    </div>  
+</body>
+</html>
