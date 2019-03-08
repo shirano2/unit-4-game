@@ -145,13 +145,14 @@ $(document).ready(function(){
             }  
             if(enemyHP<=0) { /* if you win */
                 killNum++;
-                isEnemy=false;
-                $("#"+nameArray[enemyIndex]).hide();
-                message("win");
-                music("win");
                 if(killNum==3) { /*if you kill all enemy */
                     message("killAll");
                     music("ending");
+                } else {
+                    isEnemy=false;
+                    $("#"+nameArray[enemyIndex]).hide();
+                    message("win");
+                    music("win");
                 }
             }
         } 
