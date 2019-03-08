@@ -4,111 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>unit-4-game</title>
+    <title>starWarsRpgGame</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
 </head>
-
-<style>
-img {
-    width:100px;
-    height:40px;
-}
-</style>
-<script>
-$(document).ready(function(){
-    var jewelArray=[]; /* each value of jewels (random) */
-    var total=0; /* total user score */
-    var targetScore=0; /* object score */
-    var win=0; /* number of win */
-    var lose=0; /* number of lose */
-
-    function start() { /* when start new game */
-        total=0;
-        jewelArray=[];
-        while (true) {
-            var jewelNumber=Math.floor(Math.random()*12+1); /* 1~12 */
-            if(jewelArray.indexOf(jewelNumber)<0) { /* if the number is not same as previous one */
-                jewelArray.push(jewelNumber);  /* then put the number to array */
-            }
-            if(jewelArray.length==4) break; /* if length of array is 4, then while loop is closed */
-        }
-        targetScore=Math.floor(Math.random()*102+19); /* 19~120 */
-        write();
-    }
-
-    function write() { /* if image is clciked or new game is started, rewrite html */
-        $("#target").text(targetScore);
-        $("#win").text(win);
-        $("#lose").text(lose);
-        $("#total").text(total);
-    }
-
-    /*this is start of code */
-    start();
-
-    $(".four-images").on("click",function(event){
-        if(event.target.id=="ruby") {
-            total=total+jewelArray[0];
-        } else if(event.target.id=="diamond") {
-            total=total+jewelArray[1];
-        } else if(event.target.id=="emerald") {
-            total=total+jewelArray[2];
-        } else if(event.target.id=="sapphire") {
-            total=total+jewelArray[3];
-        }
-        write();
-        if(total>=targetScore) { /* if win, */
-            if(total==targetScore) {
-                win++; 
-                $("#message").text("You win!!");
-            }
-            else { /* if lose, */
-                lose++; 
-                $("#message").text("You lose!!");
-            }
-            start();
-        }
-    });
-});
-</script>
 <body>
+    <audio id="music" src="" preload="auto" loop=""></audio>
+    <audio id="music2" src="" preload="auto" loop=""></audio>
     <div class="wrapper">
         <header>
-            <h1>CrystalsCollector!</h1>
+            <h1>Star Wars Rpg!!</h1>
         </header>
         <div class="contents">
-            <div class="instruction">
-                <p>
-                    You will be given a random number at the start of the game. <br><br>
-                    There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score. <br><br>
-                    You win the game by matching your total score to random number, you lose the game if your total score goes above the random number <br><br>
-                    The value of each crystal is hidden from you until you click on it.<br><br>
-                    Each time when the game starts, the game will change the values of each crystal.
-                </p>
+            <div class="start">
+                <div id="kenobi" class="kenobi">Obi-Wan<br>Kenobi<img class="kenobi" src="assets/images/kenobi.jpg"><span class="kenobi">120</span></div>
+                <div id="skywalker" class="skywalker">Luke<br>Skywalker<img class="skywalker" src="assets/images/skywalker.jpg"><span class="skywalker">100</span></div>
+                <div id="sidious" class="sidious">Darth<br>Sidious<img class="sidious" src="assets/images/sidious.jpeg"><span class="sidious">150</span></div>
+                <div id="maul" class="maul">Darth<br>Maul<img class="maul" src="assets/images/maul.jpg"><span class="maul">180</span></div>
             </div>
-            <div class="four-images">
-                <img id="ruby" src="assets/images/rubi.jpg">
-                <img id="diamond" src="assets/images/diamond.jpg">
-                <img id="emerald" src="assets/images/emerald.png">
-                <img id="sapphire" src="assets/images/sapphire.jpg">
+            <div class="startMessage">Please choose your character!!</div>
+            <div class="left">
+                <div class="you">
+                    <h2>Your Character</h2>
+                </div>
+                <div class="choose">
+                    <h2>Enermies Available To Attack</h2>
+                </div>
+                <div class="enemyMessage">Choose your enemy!!</div>
+                <div class="enemy">
+                    <h2>Defender</h2>
+                </div>
             </div>
-            <div class="target-score">
-                <p>You should make this number!!</p>
-                <h2 id="target"></h2>
-            </div>
-            <div class="result">
-                <div id="message"></div>
-                <div>Wins : <span id="win">0</span></div>
-                <div>Losses : <span id="lose">0</span></div>
-            </div>
-            <div class="user-score">
-                <h2>Your total score is : <span id="total">0</span></h2>
-            </div>
-            
-            
+            <div class="right">
+                <div class="button">
+                    <h2>Fight Section</h2>
+                    <button class="attack">Attack</button>
+                    <button class="restart">Restart</button>
+                </div>
+                <div class="result">
+                    <div id="message1"></div>
+                    <br>
+                    <div id="message2"></div>
+                </div>
+            </div>  
         </div>
     </div>  
 </body>

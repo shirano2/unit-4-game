@@ -1,0 +1,193 @@
+*{
+    box-sizing:border-box;
+    font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    line-height:150%;
+}
+body{
+    margin:0;
+    padding:0;
+    background:url("../images/background.jpg") no-repeat;
+    background-size:cover;  
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:white;
+}
+.wrapper {
+    width:90%;
+    margin:0 auto;
+}
+h1 {
+    text-align:right;
+    font-size: 50px;
+    font-weight:3000;
+    margin-top:20px;
+    margin-bottom:20px;
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2 {
+    font-size: 20px;
+    font-weight:3000;
+}
+.start {
+    width:100%;
+    font-size:25px;
+}
+.startMessage, .enemyMessage {
+    font-size:30px;
+    color:yellow;
+}
+#kenobi, #skywalker, #sidious, #maul {
+    width:240px;
+    margin-left:30px;
+    float:left;
+    height:250px;
+    border:3px solid rgb(44, 144, 226);
+    text-align:center;
+}
+img {
+    width:95%;
+    height:130px;
+    display:block;
+    margin:auto;
+}
+.startMessage, .enemyMessage, .you, .choose, .enemy, .button, .result, .user-score {
+    clear:both;
+}
+.left {
+    width:70%;
+    float:left;
+}
+.right {
+    width:30%;
+    float:left;
+}
+.button h2 {
+    font-size:30px;
+    margin-top:220px;
+    margin-bottom: 20px;
+}
+button{
+    width:230px;
+    height:100px;
+    font-size:40px;
+    color:white;
+    background-color: rgb(2, 99, 245);
+    display:inline-block;
+}
+.result {
+    font-size:30px;
+}
+#message1 {
+    color:rgb(1, 191, 248);
+}
+#message2 {
+    color:red;
+}
+@media screen and (max-width:1460px) and (min-width:960px) {
+    body {
+        background: url("../images/background.jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height:100%; 
+    }
+    .wrapper {
+        margin-bottom:10px;
+    }
+}
+@media screen and (max-width:960px) and (min-width:760px)  {
+    body {
+        background: url("../images/background.jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height:100%; 
+    }
+    .wrapper {
+        margin :0;
+    }
+    h1 {
+        width:100%;
+    }
+    .left {
+        width:100%;
+    }
+    .right {
+        width:100%;
+    }
+    #kenobi, #skywalker, #sidious, #maul {
+        width:220px;
+        margin-left:30px;
+        float:left;
+        height:250px;
+        border:3px solid rgb(44, 144, 226);
+        text-align:center;
+    }
+    img {
+        width:95%;
+        height:130px;
+        display:block;
+        margin:auto;
+    }
+    .you {
+        width:35%;
+        float:left;
+    }
+    .choose{
+        width:65%;
+        float:left;
+    }
+    .you, .choose{
+        clear:none;
+    }
+    #kenobi, #skywalker, #sidious, #maul {
+        width:250px;
+        margin-left:0px;
+        float:left;
+        height:250px;
+        border:3px solid rgb(44, 144, 226);
+        text-align:center;
+    }
+    .button h2 {
+        font-size:30px;
+        margin-top:0px;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width:760px)  {
+    body {
+        background: url("../images/background.jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height:100%; 
+    }
+    .wrapper {
+        margin-bottom:10px;
+    }
+    .left {
+        width:100%;
+        float:left;
+    }
+    .right {
+        width:100%;
+        float:left;
+    }
+    h2 {
+        font-size:30px;
+        font-weight:2000;
+        color:magenta;
+    }
+    .button h2 {
+        font-size:30px;
+        margin-top:0px;
+        margin-bottom: 20px;
+    }
+}

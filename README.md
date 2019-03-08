@@ -1,13 +1,10 @@
-# unit-4-game
+# unit-4-game (StarWarsRpgGame)
 
 
-##This game is simple. Just press the jewels until your score meets target score. 
+##This game is simple. Just press your character, and choose your enemy character.
 
 
-##Each of jewels has different values, and if you click it, then your score is increased by value of jewel which you clicked.  
-
-
-##If your score is larger than target score, then you lose. 
+##And press attack button. If enemy's HP is 0, you win. but your character's HP is 0, you lose.
 
 
 ##This is made by Minseok Choi (https://github.com/shirano2).
